@@ -1,5 +1,4 @@
 
-# import package and making objects
 
 import turtle
 
@@ -10,14 +9,16 @@ def square(side):
         t.left(90)
 
 
-def row(n, side):
-    for i in range(n):
+def row(n, side, i):
+    for j in range(n):
         square(side)
         t.forward(side)
 
-    
+    t.penup()
+    t.forward(40)
     style = ('Courier', 50, 'italic')
-    t.write('1', font=style, align='center')
+    t.write(i+1, font=style, align='center')
+    t.forward(-40)
 
     t.penup()
     t.left(180)
@@ -28,7 +29,7 @@ def row(n, side):
 
 def row_of_rows(m, n, side):
     for i in range(m):
-        row(n, side)
+        row(n, side, i)
         t.penup()
         t.left(90)
         t.forward(side)
@@ -52,7 +53,17 @@ t.setpos(0, 250)
 t.pendown()
 
 style = ('Courier', 50, 'italic')
-t.write('Battleship', font=style, align='center'
+t.write('Battleship', font=style, align='center')
+
+t.penup()
+t.setpos(-140, -260)
+t.pendown()
+
+for i in range(5):
+    style = ('Courier', 50, 'italic')
+    t.write(i + 1, font=style, align='center')
+    t.penup()
+    t.forward(70)
 
 t.penup()
 t.setpos(-175, -175)
