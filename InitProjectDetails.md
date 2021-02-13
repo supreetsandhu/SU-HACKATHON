@@ -19,4 +19,6 @@ Brainstorm Ideas:
     - 2-3 boats of size 2 - placed by computer and user picks spots to hit 
 
     - Python, maybe gui
-    - 
+    - test, 
+    your awesome
+    
