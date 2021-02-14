@@ -126,9 +126,9 @@ def checkspot(r, c):
 
 print("Welcome to the Game of Battleship!")
 print("You are able to use one bomb, which will destroy one spot and ")
-print("the spot to the right of the choosen spot")
-print("Here is your board")
-print("your goal is to find the two spots that has the ship.")
+print("the spot to the right of the chosen spot")
+print("Here is your board - please navigate to the popup window")
+print("Your goal is to find the two spots that has the ship.")
 print(" ")
 
 
@@ -149,27 +149,23 @@ sc2 = random_col(userboard)
 while(sc == sc2):
     sc2 = random_col(userboard)
 
-print(sr + 1)
-print(sc + 1)
-print(sr2 + 1)
-print(sc2 + 1)
 # User control
 turn = 1
 bomb = 1
 shipleft = 2
 while shipleft > 0:
     if bomb == 1:
-        choice = input("do you want to use your bomb?(y/n)\n")
+        choice = turtle.textinput("", "do you want to use your bomb?(y/n)")
         while choice not in ("y", "n"):
-            choice = input("Enter y or n: ")
+            choice = name = turtle.textinput("", "Enter y or n:")
 
         if choice == "y":
             print(
                 "note try to use a col with 4 or less, so your bomb can be more effective!")
             print(" ")
             bomb = 0
-            guess_rowBom = int(input("Bomb Row:"))
-            guess_colBom = int(input("Bob Col:"))
+            guess_rowBom = int(turtle.numinput(" ", "Enter Bomb Col"))
+            guess_colBom = int(turtle.numinput(" ", "Enter Bomb Row"))
             for bombOFF in range(2):
                 if (guess_rowBom < -1 or guess_rowBom > 5) or (guess_colBom < -1 or guess_colBom > 5):
                     print("not a valid choice.")
@@ -186,14 +182,13 @@ while shipleft > 0:
                         turn = 0
                         break
                 else:
-                    print("MISS")
                     userboard[guess_rowBom - 1][guess_colBom - 1] = 'X'
                     gotoRow(guess_rowBom, guess_colBom, "blue")
                 guess_rowBom += 1
 
     if shipleft != 0:
-        guess_row = int(input("Guess Row:"))
-        guess_col = int(input("Guess Col:"))
+        guess_row = int(turtle.numinput("", "Enter Col"))
+        guess_col = int(turtle.numinput("", "Enter Row"))
 
         if (checkspot(guess_row, guess_col) == 0):
             shipleft -= 1
@@ -213,7 +208,6 @@ while shipleft > 0:
                 print("not a valid choice")
 
             else:
-                print("MISS")
                 userboard[guess_row - 1][guess_col - 1] = "X"
                 gotoRow(guess_row, guess_col, "blue")
 if shipleft == 0:
