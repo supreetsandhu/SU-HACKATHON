@@ -211,4 +211,5 @@ while shipleft > 0:
                 userboard[guess_row - 1][guess_col - 1] = "X"
                 gotoRow(guess_row, guess_col, "blue")
 if shipleft == 0:
+    time.sleep(2)
     print("Game Over!")
