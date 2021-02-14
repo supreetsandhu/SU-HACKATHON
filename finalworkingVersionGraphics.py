@@ -116,14 +116,6 @@ t.pendown()
 
 row_of_rows(5, 5, 70)
 
-# Format board
-
-
-def displayb(userboard):
-    for row in userboard:
-        print(" ".join(row))
-
-
 def checkspot(r, c):
     if(r-1 == sr and c-1 == sc):
         return 0
@@ -132,11 +124,10 @@ def checkspot(r, c):
     return 1
 
 
-# Display board
 print("Welcome to the Game of Battleship!")
 print("You are able to use one bomb, which will destroy one spot and ")
 print("the spot to the right of the choosen spot")
-print("Here is your board, o means empty spots and X's will appear on guessed spots!")
+print("Here is your board")
 print("your goal is to find the two spots that has the ship.")
 print(" ")
 
@@ -198,7 +189,6 @@ while shipleft > 0:
                     print("MISS")
                     userboard[guess_rowBom - 1][guess_colBom - 1] = 'X'
                     gotoRow(guess_rowBom, guess_colBom, "blue")
-                    displayb(userboard)
                 guess_rowBom += 1
 
     if shipleft != 0:
