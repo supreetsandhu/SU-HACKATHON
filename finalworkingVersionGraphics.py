@@ -138,11 +138,6 @@ sc2 = random_col(userboard)
 while(sc == sc2):
     sc2 = random_col(userboard)
 
-
-print(sr+1)
-print(sc+1)
-print(sr2+1)
-print(sc2+1)
 # User control
 turn = 1
 bomb = 1
