@@ -59,6 +59,7 @@ def row_of_rows(m, n, size):
     t.left(90)
     t.pendown()
 
+
 # Create board
 userboard = []
 t = turtle.Turtle()
@@ -98,6 +99,8 @@ t.pendown()
 row_of_rows(5, 5, 70)
 
 # Format board
+
+
 def displayb(userboard):
     for row in userboard:
         print(" ".join(row))
@@ -118,7 +121,6 @@ print("the spot to the right of the choosen spot")
 print("Here is your board, o means empty spots and X's will appear on guessed spots!")
 print("your goal is to find the two spots that has the ship.")
 print(" ")
-displayb(userboard)
 
 
 def random_row(userboard):
