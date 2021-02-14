@@ -131,17 +131,21 @@ turn = 1
 bomb = 1
 while turn > 0:
     if bomb == 1:
-        choice = input("do you want to use your bomb?(y/n)\n")
+        choice = turtle.textinput("do you want to use your bomb?(y/n)", "bomb?")
+        # choice = input("do you want to use your bomb?(y/n)\n")
         while choice not in ("y", "n"):
-            choice = input("Enter y or n: ")
+            choice = name = turtle.textinput("Enter y or n:", "bomb?")
+            # choice = input("Enter y or n: ")
 
         if choice == "y":
             print(
                 "note try to use a col with 4 or less, so your bomb can be more effective!")
             print(" ")
             bomb = 0
-            guess_rowBom = int(input("Bomb Row:"))
-            guess_colBom = int(input("Bob Col:"))
+            # guess_rowBom = int(input("Bomb Row:"))
+            # guess_colBom = int(input("Bob Col:"))
+            guess_rowBom = int(turtle.numinput("Enter Bomb Row", "row"))
+            guess_colBom = int(turtle.numinput("Enter Bomb Col", "col"))
             for bombOFF in range(2):
                 guess_colBom -= 1
                 if (guess_rowBom < 1 or guess_rowBom > 6) or (guess_colBom < 1 or guess_colBom > 6):
@@ -156,8 +160,10 @@ while turn > 0:
                     # displayb(userboard)
                     gotoRow(guess_rowBom, guess_colBom, "blue")
 
-    guess_row = int(input("Guess Row:"))
-    guess_col = int(input("Guess Col:"))
+    guess_row = int(turtle.numinput("Enter Row", "row"))
+    guess_col = int(turtle.numinput("Enter Col", "col"))
+    # guess_row = int(input("Guess Row:"))
+    # guess_col = int(input("Guess Col:"))
 
     if guess_row == sr and guess_col == sc:
         print("HIT,BATTLESHIP SUNK, ending game..")
