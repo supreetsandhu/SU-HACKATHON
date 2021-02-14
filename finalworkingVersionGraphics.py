@@ -16,7 +16,6 @@ def gotoRow(x, y, color):
 def stamp(color):
     t.pendown()
     t.shape("square")
-    t.shapesize(3.35)
     t.color(color)
     t.stamp()
 
@@ -28,15 +27,16 @@ def square(size):
 
 
 def row(n, size, i):
+    t.penup()
+    t.forward(-40)
+    style = ('Courier', 50, 'italic')
+    t.write(i+1, font=style, align='center')
+    t.forward(40)
+    t.pendown()
+
     for j in range(n):
         square(size)
         t.forward(size)
-
-    t.penup()
-    t.forward(40)
-    style = ('Courier', 50, 'italic')
-    t.write(i+1, font=style, align='center')
-    t.forward(-40)
 
     t.penup()
     t.left(180)
@@ -69,26 +69,44 @@ for x in range(5):
     userboard.append(["O"] * 5)
 
 t.hideturtle()
-
-t.speed(500)
+t.speed(200)
 wn = turtle.Screen()
-# turtle.tracer(10, 10)
 wn.bgcolor("black")
 t.color("white")
 t.penup()
-t.setpos(0, 250)
-t.pendown()
 
+t.setpos(0, 250)
 style = ('Courier', 50, 'italic')
 t.write('Battleship', font=style, align='center')
 
+t.setpos(0, 180)
+style2 = ('Courier', 20)
+t.write('Computer', font=style2, align='center')
+
+t.setpos(260, 180)
+t.shapesize(1.35)
+t.write('miss', font=style2, align='center')
+t.setpos(260, 160)
+stamp("blue")
+t.penup()
+
+t.setpos(340, 180)
+t.color("white")
+t.write('hit', font=style2, align='center')
+t.setpos(340, 160)
+stamp("red")
+t.penup()
+
+
 t.penup()
 t.setpos(-140, -260)
+t.shapesize(3.35)
 t.pendown()
+t.color("white")
 
 for i in range(5):
     style = ('Courier', 50, 'italic')
-    t.write(i+1, font=style, align='center')
+    t.write(i + 1, font=style, align='center')
     t.penup()
     t.forward(70)
 
@@ -140,6 +158,10 @@ sc2 = random_col(userboard)
 while(sc == sc2):
     sc2 = random_col(userboard)
 
+print(sr + 1)
+print(sc + 1)
+print(sr2 + 1)
+print(sc2 + 1)
 # User control
 turn = 1
 bomb = 1
